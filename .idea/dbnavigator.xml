@@ -25,14 +25,28 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="607e77ce-1f1b-4c21-bad6-34ca848dbe42">
-        <schema name="platzerworld" object-types="function, procedure, table, view" />
+        <schema name="platzerworld" object-types="column, constraint, function, index, procedure, table, dataset trigger, view" />
       </connection>
     </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="607e77ce-1f1b-4c21-bad6-34ca848dbe42">
-      <console name="platzerworld" type="STANDARD" />
+      <console name="platzerworld" type="STANDARD"><![CDATA[update `T_BG_Biergarten` set telefon = '0' where telefon = '';
+
+commit;]]></console>
     </connection>
+  </component>
+  <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-list connection-id="607e77ce-1f1b-4c21-bad6-34ca848dbe42" dataset="platzerworld.T_BG_Biergarten" active-filter-id="EMPTY_FILTER">
+      <filter id="8ed14ba0-5e3b-4920-bfcd-716ae6f5b85d" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND">
+        <condition column="apfelschorle" operator="=" value="" active="true" />
+      </filter>
+    </filter-list>
+    <filter-list connection-id="607e77ce-1f1b-4c21-bad6-34ca848dbe42" dataset="platzerworld.Biergarten" active-filter-id="EMPTY_FILTER">
+      <filter id="8781f196-fb4d-4724-8ede-101b900e4da6" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND">
+        <condition column="id" operator="=" value="" active="true" />
+      </filter>
+    </filter-list>
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
