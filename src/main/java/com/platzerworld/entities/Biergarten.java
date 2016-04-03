@@ -1,9 +1,8 @@
-package platzerworld.entities;
+package com.platzerworld.entities;
 
-import platzerworld.entities.listener.TraceListener;
+import com.platzerworld.entities.listener.TraceListener;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
@@ -11,20 +10,17 @@ import javax.xml.bind.annotation.XmlRootElement;
 @EntityListeners(TraceListener.class)
 @XmlRootElement
 @NamedQueries({
-        @NamedQuery(name = BiergartenBE.FIND_ALL, query = "SELECT m FROM BiergartenBE m")
+        @NamedQuery(name = Biergarten.FIND_ALL, query = "SELECT m FROM Biergarten m")
 })
-public class BiergartenBE {
+public class Biergarten {
     private static final long serialVersionUID = 1L;
-    public static final String FIND_ALL = "BiergartenBE.findAll";
+    public static final String FIND_ALL = "Biergarten.findAll";
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     private String name;
-    private String strasse;
-    private String ort;
-    private String plz;
     private String telefon;
     private String url;
     private String email;
@@ -41,8 +37,10 @@ public class BiergartenBE {
     private String speisekommentar;
     private Boolean favorit;
 
+    private Adresse adresse;
 
-    public BiergartenBE () {
+
+    public Biergarten() {
 
     }
 
@@ -60,30 +58,6 @@ public class BiergartenBE {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getStrasse() {
-        return strasse;
-    }
-
-    public void setStrasse(String strasse) {
-        this.strasse = strasse;
-    }
-
-    public String getOrt() {
-        return ort;
-    }
-
-    public void setOrt(String ort) {
-        this.ort = ort;
-    }
-
-    public String getPlz() {
-        return plz;
-    }
-
-    public void setPlz(String plz) {
-        this.plz = plz;
     }
 
     public String getTelefon() {
@@ -204,5 +178,13 @@ public class BiergartenBE {
 
     public void setFavorit(Boolean favorit) {
         this.favorit = favorit;
+    }
+
+    public Adresse getAdresse() {
+        return adresse;
+    }
+
+    public void setAdresse(Adresse adresse) {
+        this.adresse = adresse;
     }
 }

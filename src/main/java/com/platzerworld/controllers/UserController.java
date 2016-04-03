@@ -1,8 +1,8 @@
-package platzerworld.controllers;
+package com.platzerworld.controllers;
 
 
-import platzerworld.entities.Movie;
-import platzerworld.entities.RatingService;
+import com.platzerworld.entities.Movie;
+import com.platzerworld.entities.RatingService;
 
 import javax.inject.Inject;
 import javax.json.Json;
@@ -14,7 +14,7 @@ import javax.ws.rs.Produces;
 import java.util.List;
 
 /**
- * Created by platzerworld on 26.03.16.
+ * Created by com.platzerworld on 26.03.16.
  */
 @Path("users")
 public class UserController {

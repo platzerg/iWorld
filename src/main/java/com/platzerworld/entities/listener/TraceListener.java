@@ -1,4 +1,4 @@
-package platzerworld.entities.listener;
+package com.platzerworld.entities.listener;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -6,7 +6,7 @@ import org.apache.commons.logging.LogFactory;
 import javax.persistence.*;
 
 /**
- * Created by platzerworld on 28.03.16.
+ * Created by com.platzerworld on 28.03.16.
  */
 public class TraceListener {
     Log log = LogFactory.getLog(TraceListener.class);

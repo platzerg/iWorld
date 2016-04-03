@@ -1,4 +1,4 @@
-package platzerworld.filter;
+package com.platzerworld.filter;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

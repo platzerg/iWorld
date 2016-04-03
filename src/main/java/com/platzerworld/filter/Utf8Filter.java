@@ -1,4 +1,4 @@
-package platzerworld.filter;
+package com.platzerworld.filter;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;

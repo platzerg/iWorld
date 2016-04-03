@@ -1,4 +1,4 @@
-package platzerworld.entities;
+package com.platzerworld.entities;
 
 import javax.ejb.EJB;
 import javax.persistence.PostLoad;

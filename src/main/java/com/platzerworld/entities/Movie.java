@@ -1,18 +1,17 @@
-package platzerworld.entities;
+package com.platzerworld.entities;
 
-import platzerworld.entities.listener.TraceListener;
+import com.platzerworld.entities.listener.TraceListener;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import java.io.Serializable;
 
 /**
  * @author Arun Gupta
  */
 @Entity
-@Table(name = "MOVIE_LISTENER",schema = "platzerworld")
+@Table(name = "MOVIE_LISTENER",schema = "com/platzerworld")
 @EntityListeners(TraceListener.class)
 @XmlRootElement
 @NamedQueries({

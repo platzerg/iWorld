@@ -1,4 +1,4 @@
-package platzerworld.servlets;
+package com.platzerworld.servlets;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by platzerworld on 27.03.16.
+ * Created by com.platzerworld on 27.03.16.
  */
 @WebServlet("/start")
 public class StarterServlet extends HttpServlet {
