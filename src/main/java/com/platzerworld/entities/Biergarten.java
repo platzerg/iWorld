@@ -10,7 +10,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @EntityListeners(TraceListener.class)
 @XmlRootElement
 @NamedQueries({
-        @NamedQuery(name = Biergarten.FIND_ALL, query = "SELECT m FROM Biergarten m")
+        @NamedQuery(name = Biergarten.FIND_ALL, query = "SELECT m FROM Biergarten m"),
+        @NamedQuery(name = "biergarten.list", query = "select u from Biergarten u")
 })
 public class Biergarten {
     private static final long serialVersionUID = 1L;

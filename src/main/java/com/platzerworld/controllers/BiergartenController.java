@@ -7,9 +7,8 @@ import javax.inject.Inject;
 import javax.json.Json;
 import javax.json.JsonArray;
 import javax.json.JsonArrayBuilder;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
 import java.util.List;
 
 /**
@@ -21,53 +20,87 @@ public class BiergartenController {
     @Inject
     private BiergartenService biergartenService;
 
-    @Path("all")
+    @Path("/all")
     @GET
-    @Produces("application/json")
-    public JsonArray getAllUsers() {
-        JsonArrayBuilder jsonArrayBuilder = Json.createArrayBuilder();
-        List<Biergarten> restult = biergartenService.getAllBiergarten();
-
-        for(Biergarten biergarten : restult) {
-            jsonArrayBuilder.add(
-                    Json.createObjectBuilder()
-                            .add("id", biergarten.getId())
-                            .add("name", biergarten.getName() != null ? biergarten.getName() : "")
-                            .add("strasse", biergarten.getAdresse().getStrasse() != null ? biergarten.getAdresse().getStrasse() : "")
-                            .add("plz", biergarten.getAdresse().getPlz() != null ? biergarten.getAdresse().getPlz() : "")
-                            .add("ort", biergarten.getAdresse().getOrt() != null ? biergarten.getAdresse().getOrt() : "")
-                            .add("telefon", biergarten.getTelefon() != null ? biergarten.getTelefon() : "")
-                            .add("url", biergarten.getUrl() != null ? biergarten.getUrl() : "")
-                            .add("email", biergarten.getEmail() != null ? biergarten.getEmail() : "")
-                            .add("latitude", biergarten.getLatitude() != null ? biergarten.getLatitude() : "")
-                            .add("longitude", biergarten.getLongitude() != null ? biergarten.getLongitude() : "")
-                            .add("descShort", biergarten.getDescShort() != null ? biergarten.getDescShort() : "")
-                            .add("descLong", biergarten.getDescLong() != null ? biergarten.getDescLong() : "")
-                            .add("mass", biergarten.getMass() != null ? biergarten.getMass() : "")
-                            .add("apfelschorle", biergarten.getApfelschorle() != null ? biergarten.getApfelschorle() : "")
-                            .add("riesenbreze", biergarten.getRiesenbreze() != null ? biergarten.getRiesenbreze() : "")
-                            .add("obazda", biergarten.getObazda() != null ? biergarten.getObazda() : "")
-                            .add("biermarke", biergarten.getBiermarke() != null ? biergarten.getBiermarke() : "")
-                            .add("lieblingsgericht", biergarten.getLieblingsgericht() != null ? biergarten.getLieblingsgericht() : "")
-                            .add("speisekommentar", biergarten.getSpeisekommentar() != null ? biergarten.getSpeisekommentar() : "")
-                            .add("favorit", biergarten.getFavorit() != null ? biergarten.getFavorit() : false)
-            );
-        }
-
-        JsonArray usersJson = jsonArrayBuilder.build();
-
-        System.out.println(usersJson.toString());
-
-        return usersJson;
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Biergarten>  getAllUsers() {
+        return biergartenService.getAllBiergarten();
     }
 
-    @Path("add")
+    @Path("/list")
     @GET
-    @Produces("application/json")
-    public JsonArray addBiergarten() {
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Biergarten> list(@QueryParam("first") @DefaultValue("0") int first,
+                                 @QueryParam("max") @DefaultValue("20") int max) {
+        return null;
+    }
+
+    @Path("/showbyid/{id}")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Biergarten show(@PathParam("id") int id) {
+        return this.biergartenService.getAllBiergartenById(id);
+    }
+
+    @Path("/showbyname/{name}")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Biergarten> getBiergartenByName(@PathParam("name") String name) {
+        return this.biergartenService.getBiergartenByName(name);
+    }
+
+    @Path("/adds")
+    @PUT
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public List<Biergarten> addsBiergarten(final List<Biergarten> biergarten) {
         this.biergartenService.addBiergarten();
 
-        JsonArrayBuilder jsonArrayBuilder = Json.createArrayBuilder();
-        return jsonArrayBuilder.build();
+        return biergarten;
+    }
+
+    @Path("/add")
+    @PUT
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Biergarten addBiergarten(final Biergarten biergarten) {
+        Biergarten newBiergarten = this.biergartenService.addBiergarten();
+
+        return newBiergarten;
+    }
+
+    @Path("/delete/{id}")
+    @DELETE
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public String deleteById(@PathParam("id") int id) {
+        this.biergartenService.deleteBiergartenById(id);
+        return "@DELETE/delete/" +id +" OK";
+    }
+
+    @Path("/delete/{name}")
+    @DELETE
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public String deleteByName(@PathParam("name") String name) {
+        this.biergartenService.deleteBiergartenByname(name);
+        return "@DELETE/delete/{name} OK";
+    }
+
+    @Path("/delete")
+    @DELETE
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public String deleteByBiergarten(final Biergarten biergarten) {
+
+        return "@DELETE/delete OK";
+    }
+
+    @DELETE
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public String deleteBiergarten(final Biergarten biergarten) {
+
+        return "@DELETE OK";
     }
 }

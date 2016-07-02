@@ -9,11 +9,8 @@ import java.util.List;
  */
 public class MovieListener {
 
-    @EJB
-    RatingService service;
 
     @PostLoad
     public void loadMovieRating(Movie movie) {
-        List<Movie> rating = service.movieRating(movie.getName());
     }
 }

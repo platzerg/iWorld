@@ -8,6 +8,51 @@
             <set />
           </value>
         </entry>
+        <entry key="$USER_HOME$/Development/Projects/IDEA/rest-example/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Development/Projects/IDEA/rest-example/src/main/java/org/superbiz/rest/batcher/SampleDataManager.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Development/Projects/IDEA/rest-example/src/main/java/org/superbiz/rest/dao/CommentDAO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Development/Projects/IDEA/rest-example/src/main/java/org/superbiz/rest/dao/DAO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Development/Projects/IDEA/rest-example/src/main/java/org/superbiz/rest/dao/PostDAO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Development/Projects/IDEA/rest-example/src/main/java/org/superbiz/rest/dao/UserDAO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Development/Projects/IDEA/rest-example/src/main/resources/META-INF/beans.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Development/Projects/IDEA/rest-example/src/main/resources/META-INF/persistence.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Development/Projects/IDEA/rest-example/src/test/java/org/superbiz/rest/dao/UserDaoTest.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/pers.txt">
           <value>
             <set />
@@ -63,6 +108,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/platzerworld/JAXRSConfiguration.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/platzerworld/batcher/SampleDataManager.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/platzerworld/constraint/ValidAdresse.java">
           <value>
             <set />
@@ -73,7 +128,27 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/platzerworld/controllers/Application.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/platzerworld/controllers/BiergartenController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/platzerworld/controllers/UserController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/platzerworld/dao/BiergartenDAO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/platzerworld/dao/DAO.java">
           <value>
             <set />
           </value>
@@ -88,7 +163,17 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/platzerworld/entities/MovieListener.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/platzerworld/producer/EntityManagerProducer.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/platzerworld/service/BiergartenItemRepository.java">
           <value>
             <set />
           </value>
@@ -223,6 +308,26 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/resources/META-INF/Glassfish 4.1.1_MySql_Strato.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/resources/META-INF/Glassfish 4.1.1_MySql_local.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/resources/META-INF/Wildfly10_MySql_local">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/resources/META-INF/Wildfly10_MySql_local.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/resources/META-INF/create.sql">
           <value>
             <set />
@@ -248,7 +353,37 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/webapp/OnDemand.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/webapp/dgrid.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/webapp/dgrid/test/OnDemand.html">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/webapp/index.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/test/java/de/gedoplan/buch/eedemos/ejb/service/BiergartenServiceTest.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/test/java/de/gedoplan/buch/eedemos/ejb/service/SchedulerServiceTest.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/test/java/de/gedoplan/buch/eedemos/ejb/service/SrvDateServiceTest.java">
           <value>
             <set />
           </value>
