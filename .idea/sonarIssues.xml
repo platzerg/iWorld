@@ -403,6 +403,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/test/java/de/gedoplan/buch/eedemos/ejb/dao/BiergartenDAOTest.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/test/java/de/gedoplan/buch/eedemos/ejb/service/BiergartenServiceTest.java">
           <value>
             <set />
@@ -414,6 +419,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/test/java/de/gedoplan/buch/eedemos/ejb/service/SrvDateServiceTest.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/test/java/de/gedoplan/buch/eedemos/ejb/util/LookupHelper.java">
           <value>
             <set />
           </value>
