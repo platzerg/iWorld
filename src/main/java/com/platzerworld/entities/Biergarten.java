@@ -1,19 +1,25 @@
 package com.platzerworld.entities;
 
-import com.platzerworld.entities.listener.TraceListener;
+import com.platzerworld.entities.listener.*;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.util.Date;
 
 @Entity
 @Table(name = "T_BG_Biergarten",schema = "platzerworld")
-@EntityListeners(TraceListener.class)
+@EntityListeners({
+        TraceListener.class,
+        CreatedAtListener.class,
+        UpdatedAtListener.class
+})
 @XmlRootElement
 @NamedQueries({
         @NamedQuery(name = Biergarten.FIND_ALL, query = "SELECT m FROM Biergarten m"),
         @NamedQuery(name = "biergarten.list", query = "select u from Biergarten u")
 })
-public class Biergarten {
+public class Biergarten implements Creatable, Updatable{
+
     private static final long serialVersionUID = 1L;
     public static final String FIND_ALL = "Biergarten.findAll";
 
@@ -39,6 +45,16 @@ public class Biergarten {
     private Boolean favorit;
 
     private Adresse adresse;
+
+    /*
+    @Column(name = "created_at", nullable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createdAt;
+
+    @Column(name = "updated_at", nullable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date updatedAt;
+    */
 
 
     public Biergarten() {
@@ -188,4 +204,15 @@ public class Biergarten {
     public void setAdresse(Adresse adresse) {
         this.adresse = adresse;
     }
+
+    @Override
+    public void setCreatedAt(Date date) {
+        System.out.println("setCreatedAt");
+    }
+
+    @Override
+    public void setUpdatedAt(Date date) {
+        System.out.println("setUpdatedAt");
+    }
+
 }

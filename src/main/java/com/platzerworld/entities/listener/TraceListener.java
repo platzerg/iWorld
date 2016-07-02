@@ -2,14 +2,17 @@ package com.platzerworld.entities.listener;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.apache.log4j.lf5.LogLevel;
 
 import javax.persistence.*;
+import java.util.logging.Logger;
 
 /**
  * Created by com.platzerworld on 28.03.16.
  */
 public class TraceListener {
     Log log = LogFactory.getLog(TraceListener.class);
+    private static final Logger LOGGER = Logger.getLogger(TraceListener.class.getName());
 
     @PrePersist
     public void prePersist(Object entity)
@@ -59,6 +62,7 @@ public class TraceListener {
         {
             this.log.trace(string);
         }
+        LOGGER.info(string);
 
     }
 }

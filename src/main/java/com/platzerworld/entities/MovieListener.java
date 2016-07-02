@@ -11,6 +11,7 @@ public class MovieListener {
 
 
     @PostLoad
-    public void loadMovieRating(Movie movie) {
+    public void loadMovieRating(Biergarten movie) {
+        System.out.println("loadMovieRating");
     }
 }
