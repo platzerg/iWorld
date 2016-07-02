@@ -23,7 +23,7 @@ public class BiergartenController {
     @Path("/all")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Biergarten>  getAllUsers() {
+    public List<Biergarten>  getAllBiergarten() {
         return biergartenService.getAllBiergarten();
     }
 
@@ -54,7 +54,7 @@ public class BiergartenController {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public List<Biergarten> addsBiergarten(final List<Biergarten> biergarten) {
-        this.biergartenService.addBiergarten();
+        this.biergartenService.addBiergarten(biergarten);
 
         return biergarten;
     }
@@ -64,12 +64,12 @@ public class BiergartenController {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Biergarten addBiergarten(final Biergarten biergarten) {
-        Biergarten newBiergarten = this.biergartenService.addBiergarten();
+        Biergarten newBiergarten = this.biergartenService.addBiergarten(biergarten);
 
         return newBiergarten;
     }
 
-    @Path("/delete/{id}")
+    @Path("/deletebyid/{id}")
     @DELETE
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
@@ -78,7 +78,7 @@ public class BiergartenController {
         return "@DELETE/delete/" +id +" OK";
     }
 
-    @Path("/delete/{name}")
+    @Path("/deletebyname/{name}")
     @DELETE
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
@@ -87,7 +87,6 @@ public class BiergartenController {
         return "@DELETE/delete/{name} OK";
     }
 
-    @Path("/delete")
     @DELETE
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
