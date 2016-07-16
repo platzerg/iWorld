@@ -90,14 +90,6 @@ public class BiergartenController {
     @DELETE
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public String deleteByBiergarten(final Biergarten biergarten) {
-
-        return "@DELETE/delete OK";
-    }
-
-    @DELETE
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
     public String deleteBiergarten(final Biergarten biergarten) {
 
         return "@DELETE OK";

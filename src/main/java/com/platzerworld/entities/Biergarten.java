@@ -24,7 +24,7 @@ public class Biergarten implements Creatable, Updatable{
     public static final String FIND_ALL = "Biergarten.findAll";
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    //@GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     private String name;
