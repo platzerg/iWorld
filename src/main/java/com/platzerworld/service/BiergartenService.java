@@ -35,6 +35,10 @@ public class BiergartenService {
         return biergartenDAO.getBiergartenByName(name);
     }
 
+    public List<Biergarten> loadBiergartenByName(String name) {
+        return biergartenDAO.loadBiergartenByName(name);
+    }
+
     public void deleteBiergartenByname(String name) {
         List<Biergarten> biergartenList = biergartenDAO.getBiergartenByName(name);
         for (Biergarten biergarten : biergartenList) {

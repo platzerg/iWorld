@@ -63,4 +63,10 @@ public class DAO {
                 "SELECT b FROM Biergarten b WHERE b.name = :name", Biergarten.class);
         return query.setParameter("name", name).getResultList();
     }
+
+    public List<Biergarten> loadBiergartenByName(String name) {
+        TypedQuery<Biergarten> query = em.createQuery(
+                "SELECT b FROM Biergarten b WHERE b.name like  :name", Biergarten.class);
+        return query.setParameter("name","%"+name+"%").getResultList();
+    }
 }

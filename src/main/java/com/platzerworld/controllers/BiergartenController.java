@@ -46,7 +46,7 @@ public class BiergartenController {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Biergarten> getBiergartenByName(@PathParam("name") String name) {
-        return this.biergartenService.getBiergartenByName(name);
+        return this.biergartenService.loadBiergartenByName(name);
     }
 
     @Path("/adds")
