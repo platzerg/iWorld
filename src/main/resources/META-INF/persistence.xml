@@ -22,7 +22,7 @@
                   <property name="javax.persistence.schema-generation.create-source" value="metadata-then-script" />
                   <property name="javax.persistence.sql-load-script-source" value="META-INF/sqlLoad.sql" />
              -->
-            <property name="eclipselink.ddl-generation" value="create-or-extend-tables" />
+            <!--property name="eclipselink.ddl-generation" value="create-or-extend-tables" /-->
             <property name="eclipselink.ddl-generation.output-mode" value="database" />
             <property name="hibernate.hbm2ddl.auto" value="update" />
             <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(ForeignKeys=true)" />

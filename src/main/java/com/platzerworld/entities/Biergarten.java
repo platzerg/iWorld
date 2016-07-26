@@ -24,7 +24,7 @@ public class Biergarten implements Creatable, Updatable{
     public static final String FIND_ALL = "Biergarten.findAll";
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "lockVersion", nullable = true)
@@ -256,6 +256,7 @@ public class Biergarten implements Creatable, Updatable{
     @Override
     public void setCreatedAt(Date date) {
         this.creationDate = date;
+        this.modificationDate = date;
         System.out.println("setCreatedAt");
     }
 
