@@ -5,6 +5,7 @@ package com.platzerworld.dao;
  */
 
 import com.platzerworld.entities.Biergarten;
+import com.platzerworld.entities.Rub;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -64,9 +65,21 @@ public class DAO {
         return query.setParameter("name", name).getResultList();
     }
 
+    public List<Rub> getRubByName(String name) {
+        TypedQuery<Rub> query = em.createQuery(
+                "SELECT b FROM Rub b WHERE b.name = :name", Rub.class);
+        return query.setParameter("name", name).getResultList();
+    }
+
     public List<Biergarten> loadBiergartenByName(String name) {
         TypedQuery<Biergarten> query = em.createQuery(
                 "SELECT b FROM Biergarten b WHERE b.name like  :name", Biergarten.class);
+        return query.setParameter("name","%"+name+"%").getResultList();
+    }
+
+    public List<Rub> loadRubsByName(String name) {
+        TypedQuery<Rub> query = em.createQuery(
+                "SELECT b FROM Rub b WHERE b.name like  :name", Rub.class);
         return query.setParameter("name","%"+name+"%").getResultList();
     }
 }
