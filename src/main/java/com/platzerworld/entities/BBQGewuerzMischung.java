@@ -3,11 +3,12 @@ package com.platzerworld.entities;
 import com.platzerworld.entities.listener.*;
 
 import javax.persistence.*;
-import javax.xml.bind.annotation.XmlRootElement;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
-@Table(name = "T_BBQ_Gewuerz",schema = "platzerworld")
+@Table(name = "T_BBQ_GewuerzMischung",schema = "platzerworld")
 @EntityListeners({
         TraceListener.class,
         CreatedAtListener.class,
@@ -15,13 +16,13 @@ import java.util.Date;
 })
 
 @NamedQueries({
-        @NamedQuery(name = Gewuerz.FIND_ALL, query = "SELECT m FROM Gewuerz m"),
-        @NamedQuery(name = "gewuerz.list", query = "select u from Gewuerz u")
+        @NamedQuery(name = BBQGewuerzMischung.FIND_ALL, query = "SELECT m FROM BBQGewuerzMischung m"),
+        @NamedQuery(name = "bbqgewuerzmischung.list", query = "select u from BBQGewuerzMischung u")
 })
-public class Gewuerz implements Creatable, Updatable{
+public class BBQGewuerzMischung implements Creatable, Updatable{
 
     private static final long serialVersionUID = 1L;
-    public static final String FIND_ALL = "Gewuerz.findAll";
+    public static final String FIND_ALL = "BBQGewuerzMischung.findAll";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,31 +45,20 @@ public class Gewuerz implements Creatable, Updatable{
     @Column(name = "modificationUser", nullable = true)
     private String modificationUser;
 
-    @Column(name = "name", nullable = true)
-    private String name;
-
-    @Column(name = "beschreibung", nullable = true)
-    private String beschreibung;
-
-    @Column(name = "url", nullable = true)
-    private String url;
-
     @Column(name = "menge", nullable = true)
     private Integer menge;
 
     @Column(name = "mengeneinheit", nullable = true)
     private String mengeneinheit;
 
-    @Column(name = "art", nullable = true)
-    private  String art;
-
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
     @JoinColumn(name="rub_id")
-    private Rub rub;
+    private BBQRub rub;
 
+    @OneToOne (fetch = FetchType.EAGER, cascade = {CascadeType.ALL} )
+    private BBQGewuerz gewuerz;
 
-
-    public Gewuerz() {
+    public BBQGewuerzMischung() {
 
     }
 
@@ -120,30 +110,6 @@ public class Gewuerz implements Creatable, Updatable{
         this.modificationUser = modificationUser;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getBeschreibung() {
-        return beschreibung;
-    }
-
-    public void setBeschreibung(String beschreibung) {
-        this.beschreibung = beschreibung;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
     public Integer getMenge() {
         return menge;
     }
@@ -160,20 +126,20 @@ public class Gewuerz implements Creatable, Updatable{
         this.mengeneinheit = mengeneinheit;
     }
 
-    public String getArt() {
-        return art;
-    }
-
-    public void setArt(String art) {
-        this.art = art;
-    }
-
-    public Rub getRub() {
+    public BBQRub getRub() {
         return rub;
     }
 
-    public void setRub(Rub rub) {
+    public void setRub(BBQRub rub) {
         this.rub = rub;
+    }
+
+    public BBQGewuerz getGewuerz() {
+        return gewuerz;
+    }
+
+    public void setGewuerz(BBQGewuerz gewuerz) {
+        this.gewuerz = gewuerz;
     }
 
     @Override

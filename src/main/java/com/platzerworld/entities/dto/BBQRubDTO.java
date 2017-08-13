@@ -1,6 +1,5 @@
 package com.platzerworld.entities.dto;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import java.util.ArrayList;
@@ -10,9 +9,9 @@ import java.util.List;
 /**
  * Created by platzerworld on 10.08.17.
  */
-public class RubDTO {
+public class BBQRubDTO {
 
-    public RubDTO () {
+    public BBQRubDTO() {
 
     }
 
@@ -28,7 +27,7 @@ public class RubDTO {
     private String url;
 
     @JsonManagedReference
-    private List<GewuerzDTO> gewuerze = new ArrayList<>();
+    private List<BBQGewuerzMischungDTO> gewuerzMischung = new ArrayList<>();
 
     public Integer getId() {
         return id;
@@ -110,11 +109,11 @@ public class RubDTO {
         this.url = url;
     }
 
-    public List<GewuerzDTO> getGewuerze() {
-        return gewuerze;
+    public List<BBQGewuerzMischungDTO> getGewuerzMischung() {
+        return gewuerzMischung;
     }
 
-    public void setGewuerze(List<GewuerzDTO> gewuerze) {
-        this.gewuerze = gewuerze;
+    public void setGewuerzMischung(List<BBQGewuerzMischungDTO> gewuerzMischung) {
+        this.gewuerzMischung = gewuerzMischung;
     }
 }

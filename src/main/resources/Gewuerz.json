@@ -9,8 +9,6 @@
     "name": "Paprika edelsüß",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": "gemahlen"
   },
   {
@@ -23,8 +21,6 @@
     "name": "Meersalz",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -37,8 +33,6 @@
     "name": "Zucker braun",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -51,8 +45,6 @@
     "name": "Pfeffer Schwarz",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": "gemahlen"
   },
   {
@@ -65,8 +57,6 @@
     "name": "Knoblauch",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": "Granulat"
   },
   {
@@ -79,8 +69,6 @@
     "name": "Zwiebel",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": "Granulat"
   },
   {
@@ -93,8 +81,6 @@
     "name": "Chili",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -107,8 +93,6 @@
     "name": "Cayennepfeffer",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -121,8 +105,6 @@
     "name": "Zucker weiß",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -135,8 +117,6 @@
     "name": "Kreuzkümmel",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -149,8 +129,6 @@
     "name": "Selleriesalz",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -163,8 +141,6 @@
     "name": "Oregano",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": "getrocknet"
   },
   {
@@ -177,8 +153,6 @@
     "name": "Pfeffer weiß",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -191,8 +165,6 @@
     "name": "Ananas-Curry-Pulver",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -205,8 +177,6 @@
     "name": "Pfeffer bunt",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -219,8 +189,6 @@
     "name": "Ingwer",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": "gemahlen"
   },
   {
@@ -233,8 +201,6 @@
     "name": "Thymian",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": "getrocknet"
   },
   {
@@ -247,8 +213,6 @@
     "name": "Piment",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -261,8 +225,6 @@
     "name": "Rosen-Paprika",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -275,8 +237,6 @@
     "name": "Salbei",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -289,8 +249,6 @@
     "name": "Senfmehl",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -303,8 +261,6 @@
     "name": "Fenchelsaat",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -317,8 +273,6 @@
     "name": "Paprika",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": "gemahlen, geräuchert"
   },
   {
@@ -331,8 +285,6 @@
     "name": "Chipotle",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": "gemahlen"
   },
   {
@@ -345,8 +297,6 @@
     "name": "Kümmel",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -359,8 +309,6 @@
     "name": "Koriander",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -373,8 +321,6 @@
     "name": "Senfkörner",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": "gemahlen"
   },
   {
@@ -387,8 +333,6 @@
     "name": "Majoran",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": "getrocknet"
   },
   {
@@ -401,8 +345,6 @@
     "name": "Rosmarin",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": "getrocknet"
   },
   {
@@ -415,8 +357,6 @@
     "name": "Zitronenschale",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -429,8 +369,6 @@
     "name": "Zimt",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -443,8 +381,6 @@
     "name": "Basilikum",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": "getrocknet"
   },
   {
@@ -457,8 +393,6 @@
     "name": "Koriandersaat",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -471,8 +405,6 @@
     "name": "Bärlauch",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": "getrocknet"
   },
   {
@@ -485,8 +417,6 @@
     "name": "Loorbeerblätter",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -499,8 +429,6 @@
     "name": "Selleriesamen",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -513,8 +441,6 @@
     "name": "Kurkuma",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -527,8 +453,6 @@
     "name": "Rohrzucker braun",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -541,8 +465,6 @@
     "name": "Thymian",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -555,8 +477,6 @@
     "name": "Senfpulver",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -569,8 +489,6 @@
     "name": "Loorbeer",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": "gemahlen"
   },
   {
@@ -583,8 +501,6 @@
     "name": "Koriander",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": "gemahlen"
   },
   {
@@ -597,8 +513,6 @@
     "name": "Bohnenkraut",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": "gemahlen"
   },
   {
@@ -611,8 +525,6 @@
     "name": "Pfeffer grün",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -625,8 +537,6 @@
     "name": "Majoran",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -639,8 +549,6 @@
     "name": "Paprika scharf",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -653,8 +561,6 @@
     "name": "Oregano getrocknet",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -667,8 +573,6 @@
     "name": "Muscovadozucker (dark)",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -681,8 +585,6 @@
     "name": "Kaffeepulver",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": "instant"
   },
   {
@@ -695,8 +597,6 @@
     "name": "Selleriesaat (gemahlen)",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": "gemahlen"
   },
   {
@@ -709,8 +609,6 @@
     "name": "Kakaopulver ohne Zucker",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -723,8 +621,6 @@
     "name": "Fenchelsamen",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": "gemahlen"
   },
   {
@@ -737,8 +633,6 @@
     "name": "Anissamen",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": "gemahlen"
   },
   {
@@ -751,8 +645,6 @@
     "name": "Kardamom",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": "gemahlen"
   },
   {
@@ -765,8 +657,6 @@
     "name": "Süßholzpulver",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -779,8 +669,6 @@
     "name": "Chili",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": "gemahlen"
   },
   {
@@ -793,8 +681,6 @@
     "name": "Steinpilze",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": "getrocknet"
   },
   {
@@ -807,8 +693,6 @@
     "name": "Kaffeepulver",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -821,8 +705,6 @@
     "name": "Rauchsalz",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -835,8 +717,6 @@
     "name": "Kakaopulver",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": "leicht entölt"
   },
   {
@@ -849,8 +729,6 @@
     "name": "Brühepulver",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": "Huhn"
   },
   {
@@ -863,8 +741,6 @@
     "name": "Zimt",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": "gemahlen"
   },
   {
@@ -877,8 +753,6 @@
     "name": "Muskatnuss",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": "gemahlen"
   },
   {
@@ -891,8 +765,6 @@
     "name": "Petersilie",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": "getrocknet"
   },
   {
@@ -905,8 +777,6 @@
     "name": "Röstzwiebeln",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": "gemahlen"
   },
   {
@@ -919,8 +789,6 @@
     "name": "Kümmelpulver",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -933,8 +801,6 @@
     "name": "Rosmarin",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": "gemahlen"
   },
   {
@@ -947,8 +813,6 @@
     "name": "Bohnenkraut",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": "getrocknet"
   },
   {
@@ -961,8 +825,6 @@
     "name": "Kakao",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": "ungesüßt"
   },
   {
@@ -975,8 +837,6 @@
     "name": "Rauchsalz Hickory",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -989,8 +849,6 @@
     "name": "Paprikapulver",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": "süß, geräuchert"
   },
   {
@@ -1003,8 +861,6 @@
     "name": "Chipotleflocken",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -1017,8 +873,6 @@
     "name": "Chilipulver",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -1031,8 +885,6 @@
     "name": "Chipotlepulver",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -1045,8 +897,6 @@
     "name": "Chilipulver",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -1059,8 +909,6 @@
     "name": "Zitronenabrieb",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -1073,8 +921,6 @@
     "name": "Safran",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -1087,8 +933,6 @@
     "name": "Tomatenpulver",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -1101,8 +945,6 @@
     "name": "Piment",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": "gemahlen"
   },
   {
@@ -1115,8 +957,6 @@
     "name": "Chipotle",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": "gemahlen"
   },
   {
@@ -1129,8 +969,6 @@
     "name": "Basilikum",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": "gemahlen"
   },
   {
@@ -1143,8 +981,6 @@
     "name": "5-Gewürze-Pulver",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -1157,8 +993,6 @@
     "name": "Mischpilze oder Steinpilze",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": "getrocknet"
   },
   {
@@ -1171,8 +1005,6 @@
     "name": "Curry scharf",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -1185,8 +1017,6 @@
     "name": "Koriandersamen",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -1199,8 +1029,6 @@
     "name": "Szechuanpfeffer",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -1213,8 +1041,6 @@
     "name": "Zitronengraspulver",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -1227,8 +1053,6 @@
     "name": "Kurkumapulver",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -1241,8 +1065,6 @@
     "name": "LIebstöckel",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": "getrocknet"
   },
   {
@@ -1255,8 +1077,6 @@
     "name": "Muskatblüte",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -1269,8 +1089,6 @@
     "name": "Wacholderbeeren",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -1283,8 +1101,6 @@
     "name": "Pfefferkörner",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -1297,8 +1113,6 @@
     "name": "Bohnenkraut",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -1311,8 +1125,6 @@
     "name": "Honigpulver",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -1325,8 +1137,6 @@
     "name": "Rote Beete",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": "gemahlen"
   },
   {
@@ -1339,8 +1149,6 @@
     "name": "Sternanis",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": "gemahlen"
   },
   {
@@ -1353,8 +1161,6 @@
     "name": "Speisewürze",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -1367,8 +1173,6 @@
     "name": "Nelke",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -1381,8 +1185,6 @@
     "name": "Beifuss",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -1395,8 +1197,6 @@
     "name": "Kräuterlikör",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -1409,8 +1209,6 @@
     "name": "Chiliflocken",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -1423,8 +1221,6 @@
     "name": "Backkakao",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -1437,8 +1233,6 @@
     "name": "Dill (getrocknet)",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   },
   {
@@ -1451,8 +1245,6 @@
     "name": "Estragon (getrocknet)",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": "getrocknet"
   },
   {
@@ -1465,8 +1257,6 @@
     "name": "Schnittlauch (getrocknet)",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": "getrocknet"
   },
   {
@@ -1479,8 +1269,6 @@
     "name": "Pfeffer rot",
     "beschreibung": "",
     "url": "",
-    "menge": 1,
-    "mengeneinheit": "",
     "art": ""
   }
 ]

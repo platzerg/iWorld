@@ -4,12 +4,10 @@ import com.platzerworld.entities.listener.*;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 @Entity
-@Table(name = "T_BBQ_Rub",schema = "platzerworld")
+@Table(name = "T_BBQ_Gewuerz",schema = "platzerworld")
 @EntityListeners({
         TraceListener.class,
         CreatedAtListener.class,
@@ -17,13 +15,13 @@ import java.util.List;
 })
 
 @NamedQueries({
-        @NamedQuery(name = Rub.FIND_ALL, query = "SELECT m FROM Rub m"),
-        @NamedQuery(name = "rub.list", query = "select u from Rub u")
+        @NamedQuery(name = BBQGewuerz.FIND_ALL, query = "SELECT m FROM BBQGewuerz m"),
+        @NamedQuery(name = "bbqgewuerz.list", query = "select u from BBQGewuerz u")
 })
-public class Rub implements Creatable, Updatable{
+public class BBQGewuerz implements Creatable, Updatable{
 
     private static final long serialVersionUID = 1L;
-    public static final String FIND_ALL = "Rub.findAll";
+    public static final String FIND_ALL = "BBQGewuerz.findAll";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -52,16 +50,13 @@ public class Rub implements Creatable, Updatable{
     @Column(name = "beschreibung", nullable = true)
     private String beschreibung;
 
-    @Column(name = "herkunft", nullable = true)
-    private String herkunft;
-
     @Column(name = "url", nullable = true)
     private String url;
 
-    @OneToMany(mappedBy="rub", fetch=FetchType.EAGER, cascade = {CascadeType.ALL})
-    private List<Gewuerz> gewuerze = new ArrayList<>();
+    @Column(name = "art", nullable = true)
+    private  String art;
 
-    public Rub() {
+    public BBQGewuerz() {
 
     }
 
@@ -129,14 +124,6 @@ public class Rub implements Creatable, Updatable{
         this.beschreibung = beschreibung;
     }
 
-    public String getHerkunft() {
-        return herkunft;
-    }
-
-    public void setHerkunft(String herkunft) {
-        this.herkunft = herkunft;
-    }
-
     public String getUrl() {
         return url;
     }
@@ -145,12 +132,12 @@ public class Rub implements Creatable, Updatable{
         this.url = url;
     }
 
-    public List<Gewuerz> getGewuerze() {
-        return gewuerze;
+    public String getArt() {
+        return art;
     }
 
-    public void setGewuerze(List<Gewuerz> gewuerze) {
-        this.gewuerze = gewuerze;
+    public void setArt(String art) {
+        this.art = art;
     }
 
     @Override

@@ -1,7 +1,8 @@
 package com.platzerworld.controllers;
 
-import com.platzerworld.entities.dto.GewuerzDTO;
-import com.platzerworld.entities.dto.RubDTO;
+import com.platzerworld.entities.dto.BBQGewuerzDTO;
+import com.platzerworld.entities.dto.BBQGewuerzMischungDTO;
+import com.platzerworld.entities.dto.BBQRubDTO;
 import com.platzerworld.service.BBQRubsService;
 
 import javax.inject.Inject;
@@ -22,46 +23,63 @@ public class BBQRubsController {
     @Path("/all")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<RubDTO> getAllRubGewuerzMischungen() {
-        List<RubDTO> allRubs = rubsService.getAllRubs();
+    public List<BBQRubDTO> getAllRubGewuerzMischungen() {
+        List<BBQRubDTO> allRubs = rubsService.getAllRubs();
 
         return allRubs;
+    }
+
+    @Path("/gewuerze")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<BBQGewuerzDTO> getAllGewuerze() {
+        List<BBQGewuerzDTO> allGewuerze = rubsService.getAllGewuerze();
+
+        return allGewuerze;
     }
 
     @Path("/showbyid/{id}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public RubDTO show(@PathParam("id") int id) {
-        RubDTO rubDTO = this.rubsService.getRubById(id);
-
-        return rubDTO;
+    public BBQRubDTO show(@PathParam("id") int id) {
+        return this.rubsService.getBBQRubById(id);
     }
 
     @Path("/showbyname/{name}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<RubDTO> getRubsByName(@PathParam("name") String name) {
-        List<RubDTO> allRubs = this.rubsService.getAllRubsByName(name);
+    public List<BBQRubDTO> getBiergartenByName(@PathParam("name") String name) {
+        List<BBQRubDTO> result = this.rubsService.loadBBQRubByName(name);
 
-        return allRubs;
+        return result;
     }
 
     @Path("/adds")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public List<RubDTO> addRubs(final List<RubDTO> rubDTO) {
-        List<RubDTO> newRubs = this.rubsService.addRubs(rubDTO);
+    public List<BBQRubDTO> addRubs(final List<BBQRubDTO> rubDTO) {
+        List<BBQRubDTO> newRubs = this.rubsService.addRubs(rubDTO);
 
         return newRubs;
+    }
+
+    @Path("/addgewuerze")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public List<BBQGewuerzDTO> addGewuerze(final List<BBQGewuerzDTO> gewuerze) {
+        List<BBQGewuerzDTO> newGwuerze = this.rubsService.addGewuerze(gewuerze);
+
+        return newGwuerze;
     }
 
     @Path("/add")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public RubDTO addRub(final RubDTO rubDTO) {
-        RubDTO newRRubDTO = this.rubsService.addRub(rubDTO);
+    public BBQRubDTO addRub(final BBQRubDTO rubDTO) {
+        BBQRubDTO newRRubDTO = this.rubsService.addBBQRub(rubDTO);
 
         return newRRubDTO;
     }
@@ -70,8 +88,8 @@ public class BBQRubsController {
     @PUT
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public RubDTO addGewuerzToRub(@PathParam("id") int id, final GewuerzDTO gewuerzDTO) {
-        RubDTO rubDTO = this.rubsService.addGewurzToRub(id, gewuerzDTO);
+    public BBQRubDTO addGewuerzToRub(@PathParam("id") int id, final BBQGewuerzMischungDTO gewuerzMischungDTO) {
+        BBQRubDTO rubDTO = this.rubsService.addGewurzMischungToRub(id, gewuerzMischungDTO);
         return rubDTO;
     }
 
@@ -79,8 +97,8 @@ public class BBQRubsController {
     @PUT
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public RubDTO addGewuerzeToRub(@PathParam("id") int id, final List<GewuerzDTO> gewuerze) {
-        RubDTO rubDTO = this.rubsService.addGewurzeToRub(id, gewuerze);
+    public BBQRubDTO addGewuerzMischungenToRub(@PathParam("id") int id, final List<BBQGewuerzMischungDTO> gewuerzMischungen) {
+        BBQRubDTO rubDTO = this.rubsService.addGewurzMischungenToRub(id, gewuerzMischungen);
         return rubDTO;
     }
 
@@ -88,8 +106,8 @@ public class BBQRubsController {
     @PUT
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public RubDTO updateRub(final RubDTO rubDTO) {
-        RubDTO updatedRubDTO = this.rubsService.updateRub(rubDTO);
+    public BBQRubDTO updateRub(final BBQRubDTO rubDTO) {
+        BBQRubDTO updatedRubDTO = this.rubsService.updateRub(rubDTO);
         return updatedRubDTO;
     }
 
@@ -97,23 +115,27 @@ public class BBQRubsController {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public RubDTO addRub() {
-        RubDTO rub = new RubDTO();
+    public BBQRubDTO addRub() {
+        BBQRubDTO rub = new BBQRubDTO();
         rub.setName("Mein Magic Dust rub");
         rub.setBeschreibung("Meine Rub Beschreibung");
         rub.setHerkunft("Klaus grillt");
         rub.setUrl("http://klaus-grillt.de");
 
-        GewuerzDTO gewuerz = new GewuerzDTO();
+        BBQGewuerzMischungDTO gewuerzMischung = new BBQGewuerzMischungDTO();
+
+        BBQGewuerzDTO gewuerz = new BBQGewuerzDTO();
         gewuerz.setBeschreibung("Gewürzbeschreibung");
         gewuerz.setName("Paprika");
         gewuerz.setUrl("https://www.ankerkraut.de/paprika-edelsuess");
-        gewuerz.setMenge(100);
-        gewuerz.setMengeneinheit("Gramm");
 
-        rub.getGewuerze().add(gewuerz);
+        gewuerzMischung.setRub(rub);
+        gewuerzMischung.setGewuerz(gewuerz);
+        gewuerz.setGewuerzMischung(gewuerzMischung);
 
-        RubDTO newRubDTO = this.rubsService.addRub(rub);
+        rub.getGewuerzMischung().add(gewuerzMischung);
+        BBQRubDTO newRubDTO = this.rubsService.addBBQRub(rub);
+
 
         return newRubDTO;
     }
@@ -132,14 +154,14 @@ public class BBQRubsController {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public String deleteByName(@PathParam("name") String name) {
-        this.rubsService.deleteRubsByIdByname(name);
+        this.rubsService.deleteBBQRubsByIdByname(name);
         return "@DELETE/delete/{name} OK";
     }
 
     @DELETE
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public String deleteRub(final RubDTO rubDTO) {
+    public String deleteRub(final BBQRubDTO rubDTO) {
 
         return "@DELETE OK";
     }

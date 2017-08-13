@@ -2,11 +2,8 @@ package com.platzerworld.service;
 
 
 import com.platzerworld.dao.BBQDAO;
-import com.platzerworld.entities.Biergarten;
-import com.platzerworld.entities.Gewuerz;
-import com.platzerworld.entities.Rub;
-import com.platzerworld.entities.dto.GewuerzDTO;
-import com.platzerworld.entities.dto.RubDTO;
+import com.platzerworld.entities.*;
+import com.platzerworld.entities.dto.*;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -23,45 +20,53 @@ public class BBQRubsService {
     @PersistenceContext(unitName = "iWorld")
     private EntityManager entityManager;
 
-    public List<RubDTO> getAllRubs() {
-        List<RubDTO> allRubDTO = new ArrayList<>();
+    public List<BBQRubDTO> getAllRubs() {
+        List<BBQRubDTO> allRubDTO = new ArrayList<>();
         entityManager.flush();
 
-        List<Rub> allRubs = entityManager.createNamedQuery(Rub.FIND_ALL, Rub.class).getResultList();
+        List<BBQRub> allRubs = entityManager.createNamedQuery(BBQRub.FIND_ALL, BBQRub.class).getResultList();
 
-        for (Rub rub : allRubs) {
-            allRubDTO.add(this.convertToRubDTO(rub));
+        for (BBQRub rub : allRubs) {
+            allRubDTO.add(this.convertToBBQRubDTO(rub));
         }
 
         return allRubDTO;
     }
 
-    public RubDTO getRubById(int id) {
-        Rub rub = bbqDAO.find(Rub.class, id);
+    public List<BBQGewuerzDTO> getAllGewuerze() {
+        List<BBQGewuerzDTO> allGewuerzDTO = new ArrayList<>();
+        entityManager.flush();
 
-        return this.convertToRubDTO(rub);
-    }
+        List<BBQGewuerz> allGewuerze = entityManager.createNamedQuery(BBQGewuerz.FIND_ALL, BBQGewuerz.class).getResultList();
 
-    public List<Biergarten> getBiergartenByName(String name) {
-        return bbqDAO.getBiergartenByName(name);
-    }
-
-    public List<RubDTO> getAllRubsByName(String name) {
-        List<RubDTO> allRubsDTO = new ArrayList<>();
-
-        List<Rub> allRubGewuerzMischungenByname = bbqDAO.loadRubsByName(name);
-        for (Rub rub : allRubGewuerzMischungenByname) {
-            allRubsDTO.add(this.convertToRubDTO(rub));
+        for (BBQGewuerz gewuerz : allGewuerze) {
+            allGewuerzDTO.add(this.convertToBBQGewuerzDTO(gewuerz));
         }
 
-
-        return allRubsDTO;
+        return allGewuerzDTO;
     }
 
-    public void deleteRubsByIdByname(String name) {
+    public BBQRubDTO getBBQRubById(int id) {
+        BBQRub rub = bbqDAO.find(BBQRub.class, id);
 
-        List<Rub> rubList = bbqDAO.getRubByName(name);
-        for (Rub rub : rubList) {
+        return this.convertToBBQRubDTO(rub);
+    }
+
+    public List<BBQRubDTO> loadBBQRubByName(String name) {
+        List<BBQRubDTO> result = new ArrayList<>();
+        List<BBQRub> rubs = bbqDAO.loadBBQRubsByName(name);
+
+        for (BBQRub bbqRub : rubs) {
+            result.add(this.convertToBBQRubDTO(bbqRub));
+        }
+
+        return result;
+    }
+
+    public void deleteBBQRubsByIdByname(String name) {
+
+        List<BBQRub> rubList = bbqDAO.loadBBQRubsByName(name);
+        for (BBQRub rub : rubList) {
             bbqDAO.delete(rub.getId());
         }
     }
@@ -70,64 +75,203 @@ public class BBQRubsService {
         bbqDAO.delete(id);
     }
 
-    public RubDTO addGewurzeToRub(int rubId, List<GewuerzDTO> gewuerze) {
-        List<Gewuerz> gewuerzList = new ArrayList<>();
-        for (GewuerzDTO gewuerzDTO : gewuerze) {
-            Gewuerz gewuerz = this.convertToGewuerz(gewuerzDTO);
-            gewuerzList.add(gewuerz);
+    public BBQRubDTO addGewurzMischungenToRub(int rubId, List<BBQGewuerzMischungDTO> gewuerzMischungen) {
+        List<BBQGewuerzMischung> gewuerzMischungenList = new ArrayList<>();
+
+        for (BBQGewuerzMischungDTO gewuerzMischungenDTO : gewuerzMischungen) {
+            BBQGewuerzMischung gewuerz = this.convertToGewuerzMischung(gewuerzMischungenDTO);
+            gewuerzMischungenList.add(gewuerz);
         }
 
-        Rub updatedRub = bbqDAO.updateRub(rubId, gewuerzList);
+        BBQRub updatedRub = bbqDAO.updateBBQRub(rubId, gewuerzMischungenList);
 
-        RubDTO newRubDTO = this.convertToRubDTO(updatedRub);
-
-        return newRubDTO;
-    }
-
-    public RubDTO addGewurzToRub(int rubId, GewuerzDTO gewuerzDTO) {
-        RubDTO rub = this.getRubById(rubId);
-
-        Gewuerz newGewuerz = this.convertToGewuerz(gewuerzDTO);
-
-        Rub updatedRub = bbqDAO.updateRub(rubId, newGewuerz);
-
-        RubDTO newRubDTO = this.convertToRubDTO(updatedRub);
+        BBQRubDTO newRubDTO = this.convertToBBQRubDTO(updatedRub);
 
         return newRubDTO;
     }
 
-    public RubDTO updateRub(RubDTO rubDTO) {
-        Rub updatedRub = this.convertToRub(rubDTO);
+    public BBQRubDTO addGewurzMischungToRub(int rubId, BBQGewuerzMischungDTO gewuerzDTO) {
+        BBQRubDTO rub = this.getBBQRubById(rubId);
 
-        Rub rub = bbqDAO.updateRub(updatedRub);
+        BBQGewuerzMischung newGewuerzMischung = this.convertToGewuerzMischung(gewuerzDTO);
 
-        RubDTO newRubDTO = this.convertToRubDTO(rub);
+        BBQRub updatedRub = bbqDAO.updateBBQRub(rubId, newGewuerzMischung);
+
+        BBQRubDTO newRubDTO = this.convertToBBQRubDTO(updatedRub);
+
+        return newRubDTO;
+    }
+
+    public BBQRubDTO updateRub(BBQRubDTO rubDTO) {
+        BBQRub updatedRub = this.convertToBBQRub(rubDTO);
+
+        BBQRub rub = bbqDAO.updateBBQRub(updatedRub);
+
+        BBQRubDTO newRubDTO = this.convertToBBQRubDTO(rub);
 
         return newRubDTO;
     }
 
 
-    public List<RubDTO> addRubs(final List<RubDTO> rubsDTO) {
-        List<RubDTO> newRubs= new ArrayList<>();
+    public List<BBQRubDTO> addRubs(final List<BBQRubDTO> rubsDTO) {
+        List<BBQRubDTO> newRubs= new ArrayList<>();
 
-        for (RubDTO rubDTO : rubsDTO) {
-            RubDTO newRubDTO = this.addRub(rubDTO);
+        for (BBQRubDTO rubDTO : rubsDTO) {
+            BBQRubDTO newRubDTO = this.addBBQRub(rubDTO);
             newRubs.add(newRubDTO);
         }
 
         return newRubs;
     }
 
+    public List<BBQGewuerzDTO> addGewuerze(final List<BBQGewuerzDTO> gewuerzeDTO) {
+        List<BBQGewuerzDTO> newGewuerze = new ArrayList<>();
 
-    public RubDTO addRub(final RubDTO rubDTO) {
-        Rub newRub = this.convertToRub(rubDTO);
-        Rub rub = bbqDAO.create(newRub);
-        RubDTO newRubDTO = this.convertToRubDTO(rub);
+        for (BBQGewuerzDTO gewuerzDTO : gewuerzeDTO) {
+            BBQGewuerzDTO newBBQGewuerzDTO = this.addBBQGewuerz(gewuerzDTO);
+            newGewuerze.add(newBBQGewuerzDTO);
+        }
+
+        return newGewuerze;
+    }
+
+    public BBQRubDTO addBBQRub(final BBQRubDTO bbqRubDTO) {
+        BBQRub newRub = this.convertToBBQRub(bbqRubDTO);
+
+        BBQRub rub = bbqDAO.create(newRub);
+
+        BBQRubDTO newRubDTO = this.convertToBBQRubDTO(rub);
         return newRubDTO;
     }
 
-    private RubDTO convertToRubDTO(Rub rub) {
-        RubDTO rubDTO = new RubDTO();
+    public BBQGewuerzDTO addBBQGewuerz(final BBQGewuerzDTO gewuerzDTO) {
+        BBQGewuerz newGewuerz = this.convertToBBQGewuerz(gewuerzDTO);
+
+        BBQGewuerz gewuerz = bbqDAO.create(newGewuerz);
+
+        BBQGewuerzDTO newGewuerzDTO = this.convertToBBQGewuerzDTO(gewuerz);
+        return newGewuerzDTO;
+    }
+
+    private BBQGewuerzMischung convertToGewuerzMischung(BBQGewuerzMischungDTO gewuerzMischungDTO) {
+        BBQGewuerzMischung gewuerzMischung = new BBQGewuerzMischung();
+        //gewuerzMischung.setId(gewuerzMischungDTO.getId());
+        gewuerzMischung.setCreatedUser(gewuerzMischungDTO.getCreatedUser());
+        gewuerzMischung.setCreationDate(gewuerzMischungDTO.getCreationDate());
+        gewuerzMischung.setModificationUser(gewuerzMischungDTO.getModificationUser());
+        gewuerzMischung.setModificationDate(gewuerzMischungDTO.getModificationDate());
+        gewuerzMischung.setLockVersion(gewuerzMischungDTO.getLockVersion());
+
+        gewuerzMischung.setMenge(gewuerzMischungDTO.getMenge());
+        gewuerzMischung.setMengeneinheit(gewuerzMischungDTO.getMengeneinheit());
+
+        BBQGewuerzDTO gewuerzDTO = gewuerzMischungDTO.getGewuerz();
+
+        BBQGewuerz gewuerz = new BBQGewuerz();
+        //gewuerz.setId(gewuerzDTO.getId());
+        gewuerz.setCreatedUser(gewuerzDTO.getCreatedUser());
+        gewuerz.setCreationDate(gewuerzDTO.getCreationDate());
+        gewuerz.setModificationUser(gewuerzDTO.getModificationUser());
+        gewuerz.setModificationDate(gewuerzDTO.getModificationDate());
+        gewuerz.setLockVersion(gewuerzDTO.getLockVersion());
+
+        gewuerz.setName(gewuerzDTO.getName());
+        gewuerz.setArt(gewuerzDTO.getArt());
+        gewuerz.setBeschreibung(gewuerzDTO.getBeschreibung());
+        gewuerz.setUrl(gewuerzDTO.getUrl());
+
+        gewuerzMischung.setGewuerz(gewuerz);
+
+        return gewuerzMischung;
+    }
+    private BBQGewuerz convertToBBQGewuerz(BBQGewuerzDTO gewuerzDTO) {
+        BBQGewuerz gewuerz = new BBQGewuerz();
+        //gewuerz.setId(gewuerzDTO.getId());
+        gewuerz.setCreatedUser(gewuerzDTO.getCreatedUser());
+        gewuerz.setCreationDate(gewuerzDTO.getCreationDate());
+        gewuerz.setModificationUser(gewuerzDTO.getModificationUser());
+        gewuerz.setModificationDate(gewuerzDTO.getModificationDate());
+        gewuerz.setLockVersion(gewuerzDTO.getLockVersion());
+
+        gewuerz.setName(gewuerzDTO.getName());
+        gewuerz.setArt(gewuerzDTO.getArt());
+        gewuerz.setBeschreibung(gewuerzDTO.getBeschreibung());
+        gewuerz.setUrl(gewuerzDTO.getUrl());
+
+        return gewuerz;
+    }
+
+    private BBQGewuerzDTO convertToBBQGewuerzDTO(BBQGewuerz gewuerz) {
+        BBQGewuerzDTO gewuerzDTO = new BBQGewuerzDTO();
+        gewuerzDTO.setId(gewuerz.getId());
+        gewuerzDTO.setCreatedUser(gewuerz.getCreatedUser());
+        gewuerzDTO.setCreationDate(gewuerz.getCreationDate());
+        gewuerzDTO.setModificationUser(gewuerz.getModificationUser());
+        gewuerzDTO.setModificationDate(gewuerz.getModificationDate());
+        gewuerzDTO.setLockVersion(gewuerz.getLockVersion());
+
+        gewuerzDTO.setName(gewuerz.getName());
+        gewuerzDTO.setArt(gewuerz.getArt());
+        gewuerzDTO.setBeschreibung(gewuerz.getBeschreibung());
+        gewuerzDTO.setUrl(gewuerz.getUrl());
+
+        return gewuerzDTO;
+    }
+
+    private BBQRub convertToBBQRub(BBQRubDTO bbqRubDTO) {
+        BBQRub rub = new BBQRub();
+
+        //rub.setId(bbqRubDTO.getId());
+        rub.setCreatedUser(bbqRubDTO.getCreatedUser());
+        rub.setCreationDate(bbqRubDTO.getCreationDate());
+        rub.setModificationUser(bbqRubDTO.getModificationUser());
+        rub.setModificationDate(bbqRubDTO.getModificationDate());
+        rub.setLockVersion(bbqRubDTO.getLockVersion());
+
+        rub.setName(bbqRubDTO.getName());
+        rub.setBeschreibung(bbqRubDTO.getBeschreibung());
+        rub.setHerkunft(bbqRubDTO.getHerkunft());
+        rub.setUrl(bbqRubDTO.getUrl());
+
+        for (BBQGewuerzMischungDTO gewuerzMischungDTO : bbqRubDTO.getGewuerzMischung()) {
+            BBQGewuerzMischung gewuerzMischung = new BBQGewuerzMischung();
+            BBQGewuerz gewuerz = new BBQGewuerz();
+
+            //gewuerzMischung.setId(gewuerzMischungDTO.getId());
+            gewuerzMischung.setCreatedUser(gewuerzMischungDTO.getCreatedUser());
+            gewuerzMischung.setCreationDate(gewuerzMischungDTO.getCreationDate());
+            gewuerzMischung.setModificationUser(gewuerzMischungDTO.getModificationUser());
+            gewuerzMischung.setModificationDate(gewuerzMischungDTO.getModificationDate());
+            gewuerzMischung.setLockVersion(gewuerzMischungDTO.getLockVersion());
+
+            gewuerzMischung.setMenge(gewuerzMischungDTO.getMenge());
+            gewuerzMischung.setMengeneinheit(gewuerzMischungDTO.getMengeneinheit());
+
+            BBQGewuerzDTO gewuerzDTO = gewuerzMischungDTO.getGewuerz();
+            //gewuerz.setId(gewuerzDTO.getId());
+            gewuerz.setCreatedUser(gewuerzDTO.getCreatedUser());
+            gewuerz.setCreationDate(gewuerzDTO.getCreationDate());
+            gewuerz.setModificationUser(gewuerzDTO.getModificationUser());
+            gewuerz.setModificationDate(gewuerzDTO.getModificationDate());
+            gewuerz.setLockVersion(gewuerzDTO.getLockVersion());
+
+            gewuerz.setName(gewuerzDTO.getName());
+            gewuerz.setArt(gewuerzDTO.getArt());
+            gewuerz.setBeschreibung(gewuerzDTO.getBeschreibung());
+            gewuerz.setUrl(gewuerzDTO.getUrl());
+
+            gewuerzMischung.setGewuerz(gewuerz);
+
+            gewuerzMischung.setRub(rub);
+            rub.getGewuerzMischung().add(gewuerzMischung);
+
+        }
+
+        return rub;
+    }
+
+    private BBQRubDTO convertToBBQRubDTO(BBQRub rub) {
+        BBQRubDTO rubDTO = new BBQRubDTO();
 
         rubDTO.setId(rub.getId());
         rubDTO.setCreatedUser(rub.getCreatedUser());
@@ -143,8 +287,21 @@ public class BBQRubsService {
 
 
 
-        for (Gewuerz gewuerz : rub.getGewuerze()) {
-            GewuerzDTO gewuerzDTO = new GewuerzDTO();
+        for (BBQGewuerzMischung gewuerzMischung : rub.getGewuerzMischung()) {
+            BBQGewuerzMischungDTO gewuerzMischungDTO = new BBQGewuerzMischungDTO();
+            gewuerzMischungDTO.setId(gewuerzMischung.getId());
+            gewuerzMischungDTO.setCreatedUser(gewuerzMischung.getCreatedUser());
+            gewuerzMischungDTO.setCreationDate(gewuerzMischung.getCreationDate());
+            gewuerzMischungDTO.setModificationUser(gewuerzMischung.getModificationUser());
+            gewuerzMischungDTO.setModificationDate(gewuerzMischung.getModificationDate());
+            gewuerzMischungDTO.setLockVersion(gewuerzMischung.getLockVersion());
+
+            gewuerzMischungDTO.setMenge(gewuerzMischung.getMenge());
+            gewuerzMischungDTO.setMengeneinheit(gewuerzMischung.getMengeneinheit());
+
+            BBQGewuerz gewuerz = gewuerzMischung.getGewuerz();
+
+            BBQGewuerzDTO gewuerzDTO = new BBQGewuerzDTO();
             gewuerzDTO.setId(gewuerz.getId());
             gewuerzDTO.setCreatedUser(gewuerz.getCreatedUser());
             gewuerzDTO.setCreationDate(gewuerz.getCreationDate());
@@ -155,74 +312,14 @@ public class BBQRubsService {
             gewuerzDTO.setName(gewuerz.getName());
             gewuerzDTO.setArt(gewuerz.getArt());
             gewuerzDTO.setBeschreibung(gewuerz.getBeschreibung());
-            gewuerzDTO.setMenge(gewuerz.getMenge());
-            gewuerzDTO.setMengeneinheit(gewuerz.getMengeneinheit());
             gewuerzDTO.setUrl(gewuerz.getUrl());
 
-            gewuerzDTO.setRub(rubDTO);
+            gewuerzDTO.setGewuerzMischung(gewuerzMischungDTO);
+            gewuerzMischungDTO.setGewuerz(gewuerzDTO);
 
-
-            rubDTO.getGewuerze().add(gewuerzDTO);
+            rubDTO.getGewuerzMischung().add(gewuerzMischungDTO);
         }
 
         return rubDTO;
-    }
-
-    private Rub convertToRub(RubDTO rubDTO) {
-        Rub rub = new Rub();
-
-        rub.setId(rubDTO.getId());
-        rub.setCreatedUser(rubDTO.getCreatedUser());
-        rub.setCreationDate(rubDTO.getCreationDate());
-        rub.setModificationUser(rubDTO.getModificationUser());
-        rub.setModificationDate(rubDTO.getModificationDate());
-        rub.setLockVersion(rubDTO.getLockVersion());
-
-        rub.setName(rubDTO.getName());
-        rub.setBeschreibung(rubDTO.getBeschreibung());
-        rub.setHerkunft(rubDTO.getHerkunft());
-        rub.setUrl(rubDTO.getUrl());
-
-        for (GewuerzDTO gewuerzDTO : rubDTO.getGewuerze()) {
-            Gewuerz gewuerz = new Gewuerz();
-            gewuerz.setId(gewuerzDTO.getId());
-            gewuerz.setCreatedUser(gewuerzDTO.getCreatedUser());
-            gewuerz.setCreationDate(gewuerzDTO.getCreationDate());
-            gewuerz.setModificationUser(gewuerzDTO.getModificationUser());
-            gewuerz.setModificationDate(gewuerzDTO.getModificationDate());
-            gewuerz.setLockVersion(gewuerzDTO.getLockVersion());
-
-            gewuerz.setName(gewuerzDTO.getName());
-            gewuerz.setArt(gewuerzDTO.getArt());
-            gewuerz.setBeschreibung(gewuerzDTO.getBeschreibung());
-            gewuerz.setMenge(gewuerzDTO.getMenge());
-            gewuerz.setMengeneinheit(gewuerzDTO.getMengeneinheit());
-            gewuerz.setUrl(gewuerzDTO.getUrl());
-
-
-            rub.getGewuerze().add(gewuerz);
-            gewuerz.setRub(rub);
-        }
-
-        return rub;
-    }
-
-    private Gewuerz convertToGewuerz(GewuerzDTO gewuerzDTO) {
-        Gewuerz gewuerz = new Gewuerz();
-        gewuerz.setId(gewuerzDTO.getId());
-        gewuerz.setCreatedUser(gewuerzDTO.getCreatedUser());
-        gewuerz.setCreationDate(gewuerzDTO.getCreationDate());
-        gewuerz.setModificationUser(gewuerzDTO.getModificationUser());
-        gewuerz.setModificationDate(gewuerzDTO.getModificationDate());
-        gewuerz.setLockVersion(gewuerzDTO.getLockVersion());
-
-        gewuerz.setName(gewuerzDTO.getName());
-        gewuerz.setArt(gewuerzDTO.getArt());
-        gewuerz.setBeschreibung(gewuerzDTO.getBeschreibung());
-        gewuerz.setMenge(gewuerzDTO.getMenge());
-        gewuerz.setMengeneinheit(gewuerzDTO.getMengeneinheit());
-        gewuerz.setUrl(gewuerzDTO.getUrl());
-
-        return gewuerz;
     }
 }

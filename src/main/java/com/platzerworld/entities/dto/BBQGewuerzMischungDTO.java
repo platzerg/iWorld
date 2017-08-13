@@ -3,14 +3,16 @@ package com.platzerworld.entities.dto;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by platzerworld on 10.08.17.
  */
-public class GewuerzDTO {
+public class BBQGewuerzMischungDTO {
 
-    public GewuerzDTO() {
+    public BBQGewuerzMischungDTO() {
 
     }
 
@@ -20,15 +22,14 @@ public class GewuerzDTO {
     private Date modificationDate;
     private String createdUser;
     private String modificationUser;
-    private String name;
-    private String art;
-    private String beschreibung;
-    private String url;
+
     private Integer menge;
     private String mengeneinheit;
 
     @JsonBackReference
-    private RubDTO rub;
+    private BBQRubDTO rub;
+
+    private BBQGewuerzDTO gewuerz;
 
     public Integer getId() {
         return id;
@@ -78,38 +79,6 @@ public class GewuerzDTO {
         this.modificationUser = modificationUser;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getArt() {
-        return art;
-    }
-
-    public void setArt(String art) {
-        this.art = art;
-    }
-
-    public String getBeschreibung() {
-        return beschreibung;
-    }
-
-    public void setBeschreibung(String beschreibung) {
-        this.beschreibung = beschreibung;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
     public Integer getMenge() {
         return menge;
     }
@@ -126,11 +95,19 @@ public class GewuerzDTO {
         this.mengeneinheit = mengeneinheit;
     }
 
-    public RubDTO getRub() {
+    public BBQRubDTO getRub() {
         return rub;
     }
 
-    public void setRub(RubDTO rub) {
+    public void setRub(BBQRubDTO rub) {
         this.rub = rub;
+    }
+
+    public BBQGewuerzDTO getGewuerz() {
+        return gewuerz;
+    }
+
+    public void setGewuerz(BBQGewuerzDTO gewuerz) {
+        this.gewuerz = gewuerz;
     }
 }
