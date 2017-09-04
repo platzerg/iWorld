@@ -46,6 +46,20 @@ public class BBQRubsService {
         return allGewuerzDTO;
     }
 
+    public BBQGewuerzDTO updateGewuerz(BBQGewuerzDTO gewuerzDTO) {
+        BBQGewuerz updatedGewuerz = this.convertToBBQGewuerz(gewuerzDTO);
+
+        BBQGewuerz newUpdatedGewuerz = bbqDAO.updateBBQGewuerz(updatedGewuerz);
+
+        BBQGewuerzDTO newRubDTO = this.convertToBBQGewuerzDTO(newUpdatedGewuerz);
+
+        return newRubDTO;
+    }
+
+    public void deleteGewuerzById(int id) {
+        bbqDAO.deleteGewuerz(id);
+    }
+
     public BBQRubDTO getBBQRubById(int id) {
         BBQRub rub = bbqDAO.find(BBQRub.class, id);
 
@@ -72,7 +86,7 @@ public class BBQRubsService {
     }
 
     public void deleteRubById(int id) {
-        bbqDAO.delete(id);
+        bbqDAO.deleteGewuerz(id);
     }
 
     public BBQRubDTO addGewurzMischungenToRub(int rubId, List<BBQGewuerzMischungDTO> gewuerzMischungen) {

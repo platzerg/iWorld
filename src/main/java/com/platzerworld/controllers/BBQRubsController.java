@@ -6,8 +6,12 @@ import com.platzerworld.entities.dto.BBQRubDTO;
 import com.platzerworld.service.BBQRubsService;
 
 import javax.inject.Inject;
+import javax.json.Json;
+import javax.json.JsonObject;
+import javax.json.JsonObjectBuilder;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.util.List;
 
 /**
@@ -38,6 +42,49 @@ public class BBQRubsController {
         return allGewuerze;
     }
 
+    @Path("/gewuerze")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response createGewuerz(final BBQGewuerzDTO gewuerzDTO) {
+        BBQGewuerzDTO newGwuerze = this.rubsService.addBBQGewuerz(gewuerzDTO);
+        JsonObjectBuilder jsonObjBuilder = Json.createObjectBuilder();
+        jsonObjBuilder.add( "message", "post method ok" );
+
+        JsonObject jsonObj = jsonObjBuilder.build();
+
+        return Response.status( Response.Status.CREATED ).entity( newGwuerze).build();
+    }
+
+    @Path("/gewuerze")
+    @PUT
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response updateGewuerz(final BBQGewuerzDTO gewuerzDTO) {
+        BBQGewuerzDTO newGwuerze = this.rubsService.updateGewuerz(gewuerzDTO);
+        JsonObjectBuilder jsonObjBuilder = Json.createObjectBuilder();
+        jsonObjBuilder.add( "message", "put method ok" );
+
+        JsonObject jsonObj = jsonObjBuilder.build();
+
+        return Response.status( Response.Status.ACCEPTED ).entity( gewuerzDTO ).build();
+    }
+
+    @Path("/gewuerze/{id}")
+    @DELETE
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response deleteGewuerzById(@PathParam("id") int id) {
+        this.rubsService.deleteGewuerzById(id);
+
+        JsonObjectBuilder jsonObjBuilder = Json.createObjectBuilder();
+        jsonObjBuilder.add( "message", "delete method ok" );
+        JsonObject jsonObj = jsonObjBuilder.build();
+
+        return Response.status( Response.Status.ACCEPTED ).entity( jsonObj.toString() ).build();
+
+    }
+
     @Path("/showbyid/{id}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -53,6 +100,16 @@ public class BBQRubsController {
 
         return result;
     }
+
+    @Path("/reservation/v1")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<BBQRubDTO> getT() {
+
+        return null;
+    }
+
+
 
     @Path("/adds")
     @POST
