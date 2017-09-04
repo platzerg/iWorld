@@ -5,8 +5,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.util.Date;
 
 /**
- * Created by platzerworld on 10.08.17.
- */
+ * Created by platzerworld on 10.08.17. */
 public class BBQGewuerzDTO {
 
     public BBQGewuerzDTO() {
